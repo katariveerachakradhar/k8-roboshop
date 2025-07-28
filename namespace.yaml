@@ -3,5 +3,5 @@ kind: Namespace
 metadata:
   name: roboshop-1
   labels:
-    project: roboshop
+    project: roboshop-1
     environment: dev
