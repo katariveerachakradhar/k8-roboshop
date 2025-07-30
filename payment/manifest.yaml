@@ -2,10 +2,10 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: payment
-  namespace: roboshop-1
+  namespace: roboshop
   labels:
     component: payment
-    project: roboshop-1
+    project: roboshop
     tier: app
 data:
   CART_HOST: "cart"
@@ -20,7 +20,7 @@ metadata:
   name: payment
   labels:
     component: payment
-    project: roboshop-1
+    project: roboshop
     tier: app
 type: Opaque
 data:
@@ -31,11 +31,11 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: payment
-  namespace: roboshop-1
+  namespace: roboshop
   # deployment labels
   labels:
     component: payment
-    project: roboshop-1
+    project: roboshop
     tier: app
 spec:
   replicas: 1
@@ -43,14 +43,14 @@ spec:
   selector:
     matchLabels:
       component: payment
-      project: roboshop-1
+      project: roboshop
       tier: app
   # This is pod definition
   template:
     metadata:
       labels:
         component: payment
-        project: roboshop-1
+        project: roboshop
         tier: app
     spec:
       containers:
@@ -66,15 +66,15 @@ apiVersion: v1
 kind: Service
 metadata:
   name: payment
-  namespace: roboshop-1
+  namespace: roboshop
   labels:
     component: payment
-    project: roboshop-1
+    project: roboshop
     tier: app
 spec:
   selector:
     component: payment
-    project: roboshop-1
+    project: roboshop
     tier: app
   ports:
   - protocol: TCP
